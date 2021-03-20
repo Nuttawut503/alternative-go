@@ -6,13 +6,15 @@ type Deque struct {
 	length int
 }
 
+type dqType interface{}
+
 type dqNode struct {
-	item     int
+	item     dqType
 	prevNode *dqNode
 	nextNode *dqNode
 }
 
-func (ll *Deque) PushFront(item int) {
+func (ll *Deque) PushFront(item dqType) {
 	newNode := new(dqNode)
 	newNode.item = item
 	if ll.head == nil {
@@ -25,7 +27,7 @@ func (ll *Deque) PushFront(item int) {
 	ll.length++
 }
 
-func (ll *Deque) PushBack(item int) {
+func (ll *Deque) PushBack(item dqType) {
 	newNode := new(dqNode)
 	newNode.item = item
 	if ll.tail == nil {
@@ -62,13 +64,13 @@ func (ll *Deque) Len() int {
 	return ll.length
 }
 
-func (ll *Deque) ToList() []int {
-	list := []int{}
+func (ll *Deque) ToList() []interface{} {
+	list := make([]interface{}, 0)
 	ll.head.saveToList(&list)
 	return list
 }
 
-func (node *dqNode) saveToList(list *[]int) {
+func (node *dqNode) saveToList(list *[]interface{}) {
 	if node != nil {
 		*list = append(*list, node.item)
 		node.nextNode.saveToList(list)

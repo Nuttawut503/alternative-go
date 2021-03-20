@@ -29,11 +29,15 @@ func TestDeque(t *testing.T) {
 		newDeque.PushFront(1)
 		newDeque.PushFront(0)
 		newDeque.PopFront()
-		got := newDeque.ToList()
+		dqList := newDeque.ToList()
+		got := make([]int, len(dqList))
+		for i, v := range dqList {
+			got[i] = v.(int)
+		}
 		expect := []int{1, 2}
 
 		if !reflect.DeepEqual(expect, got) {
-			t.Errorf("expect %v but got %v", expect, got)
+			t.Errorf("expect %q but got %q", expect, got)
 		}
 	})
 
@@ -45,7 +49,11 @@ func TestDeque(t *testing.T) {
 		newDeque.PushBack(1)
 		newDeque.PushBack(2)
 		newDeque.PopBack()
-		got := newDeque.ToList()
+		dqList := newDeque.ToList()
+		got := make([]int, len(dqList))
+		for i, v := range dqList {
+			got[i] = v.(int)
+		}
 		expect := []int{0, 1}
 
 		if !reflect.DeepEqual(expect, got) {

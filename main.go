@@ -6,13 +6,19 @@ import (
 	"fmt"
 )
 
+type MyInt int
+
+func (a MyInt) Less(b interface{}) bool {
+	return a < b.(MyInt)
+}
+
 func main() {
 	tree := new(bstree.BSTree)
-	tree.Insert(13)
-	tree.Insert(6)
-	tree.Insert(8)
-	tree.Insert(15)
-	tree.Insert(7)
+	tree.Insert(MyInt(13))
+	tree.Insert(MyInt(6))
+	tree.Insert(MyInt(8))
+	tree.Insert(MyInt(15))
+	tree.Insert(MyInt(7))
 	fmt.Printf("%T -> %v\n", tree, tree.InorderList())
 
 	deque := new(dq.Deque)
@@ -22,4 +28,5 @@ func main() {
 	deque.PushFront(3)
 	deque.PushBack(4)
 	fmt.Printf("%T -> %v length: %d\n", deque, deque.ToList(), deque.Len())
+
 }

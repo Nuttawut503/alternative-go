@@ -4,13 +4,17 @@ type BSTree struct {
 	root *bstreeNode
 }
 
+type bstreeType interface {
+	Less(interface{}) bool
+}
+
 type bstreeNode struct {
-	item      int
+	item      bstreeType
 	leftNode  *bstreeNode
 	rightNode *bstreeNode
 }
 
-func (tree *BSTree) Insert(item int) {
+func (tree *BSTree) Insert(item bstreeType) {
 	if tree.root == nil {
 		tree.root = new(bstreeNode)
 		tree.root.item = item
@@ -19,8 +23,8 @@ func (tree *BSTree) Insert(item int) {
 	}
 }
 
-func (node *bstreeNode) insert(item int) {
-	if item < node.item {
+func (node *bstreeNode) insert(item bstreeType) {
+	if item.Less(node.item) {
 		if node.leftNode == nil {
 			node.leftNode = new(bstreeNode)
 			node.leftNode.item = item
@@ -35,13 +39,13 @@ func (node *bstreeNode) insert(item int) {
 	}
 }
 
-func (tree *BSTree) InorderList() []int {
-	list := []int{}
+func (tree *BSTree) InorderList() []interface{} {
+	list := make([]interface{}, 0)
 	tree.root.inorder(&list)
 	return list
 }
 
-func (node *bstreeNode) inorder(list *[]int) {
+func (node *bstreeNode) inorder(list *[]interface{}) {
 	if node != nil {
 		node.leftNode.inorder(list)
 		*list = append(*list, node.item)
