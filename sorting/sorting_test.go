@@ -1,6 +1,7 @@
-package sorting
+package sorting_test
 
 import (
+	"app/main/sorting"
 	"reflect"
 	"sort"
 	"testing"
@@ -9,7 +10,7 @@ import (
 func TestSort(t *testing.T) {
 	t.Run("Check heapsort", func(t *testing.T) {
 		arr := []int{1, 5, 6, 2, 4, 3, 3, 0, 0, 7}
-		got := Heapsort(arr)
+		got := sorting.Heapsort(arr)
 		sort.Ints(arr)
 		expect := arr
 
@@ -20,7 +21,7 @@ func TestSort(t *testing.T) {
 
 	t.Run("Check mergesort", func(t *testing.T) {
 		arr := []int{1, 5, 6, 2, 4, 3, 3, 0, 0, 7}
-		got := Mergesort(arr)
+		got := sorting.Mergesort(arr)
 		sort.Ints(arr)
 		expect := arr
 
@@ -31,7 +32,7 @@ func TestSort(t *testing.T) {
 
 	t.Run("Check quicksort", func(t *testing.T) {
 		arr := []int{1, 5, 6, 2, 4, 3, 3, 0, 0, 7}
-		got := Quicksort(arr)
+		got := sorting.Quicksort(arr)
 		sort.Ints(arr)
 		expect := arr
 

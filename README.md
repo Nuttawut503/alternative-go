@@ -10,3 +10,8 @@ go run .
 ```zsh
 go test ./... -v
 ```
+
+- benchmark
+```zsh
+go test ./... -bench=.
+```

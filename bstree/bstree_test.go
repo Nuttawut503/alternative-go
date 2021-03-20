@@ -1,6 +1,7 @@
-package bstree
+package bstree_test
 
 import (
+	"app/main/bstree"
 	"reflect"
 	"testing"
 )
@@ -13,7 +14,7 @@ func (a IntVar) Less(b interface{}) bool {
 
 func TestBSTree(t *testing.T) {
 	t.Run("Check if bstree works properly", func(t *testing.T) {
-		tree := new(BSTree)
+		tree := new(bstree.BSTree)
 		tree.Insert(IntVar(3))
 		tree.Insert(IntVar(1))
 		tree.Insert(IntVar(0))

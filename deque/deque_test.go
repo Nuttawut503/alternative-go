@@ -1,6 +1,7 @@
-package deque
+package deque_test
 
 import (
+	"app/main/deque"
 	"reflect"
 	"testing"
 )
@@ -14,7 +15,7 @@ func TestDeque(t *testing.T) {
 	}
 
 	t.Run("Check if Deque length starts with 0", func(t *testing.T) {
-		newDeque := new(Deque)
+		newDeque := new(deque.Deque)
 		got := newDeque.Len()
 		expect := 0
 
@@ -22,7 +23,7 @@ func TestDeque(t *testing.T) {
 	})
 
 	t.Run("Check if Front-side functions work", func(t *testing.T) {
-		newDeque := new(Deque)
+		newDeque := new(deque.Deque)
 		newDeque.PushFront(10)
 		newDeque.PopFront()
 		newDeque.PushFront(2)
@@ -42,7 +43,7 @@ func TestDeque(t *testing.T) {
 	})
 
 	t.Run("Check if Back-side functions work", func(t *testing.T) {
-		newDeque := new(Deque)
+		newDeque := new(deque.Deque)
 		newDeque.PushBack(10)
 		newDeque.PopBack()
 		newDeque.PushBack(0)
