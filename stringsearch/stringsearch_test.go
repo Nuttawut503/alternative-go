@@ -26,27 +26,27 @@ func TestStringsearch(t *testing.T) {
 		}
 	})
 
-	// t.Run("Check if bruteforce fails as expected", func(t *testing.T) {
-	// 	got := stringsearch.SearchBruteForce("Hello", "le")
-	// 	expect := -1
-	// 	if expect != got {
-	// 		t.Errorf("expect %v but got %v", expect, got)
-	// 	}
-	// })
-
-	t.Run("Check if KMP works as expected", func(t *testing.T) {
-		got := stringsearch.SearchKMP("HelloHelleHelli", "Helli")
-		expect := 10
+	t.Run("Check if bruteforce fails as expected", func(t *testing.T) {
+		got := stringsearch.SearchBruteForce("Hello", "le")
+		expect := -1
 		if expect != got {
 			t.Errorf("expect %v but got %v", expect, got)
 		}
 	})
 
-	// t.Run("Check if KMP fails as expected", func(t *testing.T) {
-	// 	got := stringsearch.SearchKMP("Hello", "le")
-	// 	expect := -1
-	// 	if expect != got {
-	// 		t.Errorf("expect %v but got %v", expect, got)
-	// 	}
-	// })
+	t.Run("Check if KMP works as expected", func(t *testing.T) {
+		got := stringsearch.SearchKMP("HelloHelleHelli", "lli")
+		expect := 12
+		if expect != got {
+			t.Errorf("expect %v but got %v", expect, got)
+		}
+	})
+
+	t.Run("Check if KMP fails as expected", func(t *testing.T) {
+		got := stringsearch.SearchKMP("Hello", "le")
+		expect := -1
+		if expect != got {
+			t.Errorf("expect %v but got %v", expect, got)
+		}
+	})
 }
