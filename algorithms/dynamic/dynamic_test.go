@@ -1,7 +1,7 @@
 package dynamic_test
 
 import (
-	"app/main/dynamic"
+	"app/main/algorithms/dynamic"
 	"reflect"
 	"testing"
 )

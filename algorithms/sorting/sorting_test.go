@@ -1,7 +1,7 @@
 package sorting_test
 
 import (
-	"app/main/sorting"
+	"app/main/algorithms/sorting"
 	"reflect"
 	"sort"
 	"testing"

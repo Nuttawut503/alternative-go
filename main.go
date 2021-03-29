@@ -1,8 +1,8 @@
 package main
 
 import (
-	"app/main/bstree"
-	dq "app/main/deque"
+	"app/main/data_structures/bstree"
+	dq "app/main/data_structures/deque"
 	"fmt"
 )
 
@@ -28,5 +28,4 @@ func main() {
 	deque.PushFront(3)
 	deque.PushBack(4)
 	fmt.Printf("%T -> %v length: %d\n", deque, deque.ToList(), deque.Len())
-
 }

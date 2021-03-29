@@ -1,7 +1,7 @@
 package graph_test
 
 import (
-	"app/main/graph"
+	"app/main/algorithms/graph"
 	"reflect"
 	"testing"
 )

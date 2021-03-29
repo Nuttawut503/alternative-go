@@ -1,7 +1,7 @@
 package deque_test
 
 import (
-	"app/main/deque"
+	"app/main/data_structures/deque"
 	"reflect"
 	"testing"
 )

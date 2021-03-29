@@ -1,7 +1,7 @@
 package stringsearch_test
 
 import (
-	"app/main/stringsearch"
+	stringsearch "app/main/algorithms/string_search"
 	"testing"
 )
 

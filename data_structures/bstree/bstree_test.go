@@ -1,7 +1,7 @@
 package bstree_test
 
 import (
-	"app/main/bstree"
+	"app/main/data_structures/bstree"
 	"reflect"
 	"testing"
 )
