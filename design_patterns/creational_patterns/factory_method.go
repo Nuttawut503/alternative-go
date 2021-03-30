@@ -19,22 +19,10 @@ type FileMaker interface {
 	MakeFile(string) File
 }
 
-type FileFactory struct {
-	text  string
-	maker FileMaker
-}
-
-func (fileFactory *FileFactory) Write(text string) {
-	fileFactory.text += text
-}
-
-func (fileFactory *FileFactory) MakeFile() File {
-	return fileFactory.maker.MakeFile(fileFactory.text)
-}
-
-type TxtMaker struct{}
-
-type PDFMaker struct{}
+type (
+	TxtMaker struct{}
+	PDFMaker struct{}
+)
 
 func (txtMaker TxtMaker) MakeFile(text string) File {
 	file := File{
@@ -50,6 +38,19 @@ func (pdfMaker PDFMaker) MakeFile(text string) File {
 		"pdf",
 	}
 	return file
+}
+
+type FileFactory struct {
+	text  string
+	maker FileMaker
+}
+
+func (fileFactory *FileFactory) Write(text string) {
+	fileFactory.text += text
+}
+
+func (fileFactory *FileFactory) MakeFile() File {
+	return fileFactory.maker.MakeFile(fileFactory.text)
 }
 
 type FileType int

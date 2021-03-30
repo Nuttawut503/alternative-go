@@ -11,19 +11,19 @@ type Operator interface {
 	do(int, int) int
 }
 
-type Plus struct{}
+type (
+	Plus     struct{}
+	Minus    struct{}
+	Multiply struct{}
+)
 
 func (Plus) do(a, b int) int {
 	return a + b
 }
 
-type Minus struct{}
-
 func (Minus) do(a, b int) int {
 	return a - b
 }
-
-type Multiply struct{}
 
 func (Multiply) do(a, b int) int {
 	return a * b

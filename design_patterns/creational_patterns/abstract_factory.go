@@ -6,21 +6,24 @@ import "fmt"
 for creating families of related or dependent objects
 without specifying their concrete classes
 */
+type (
+	Bear      interface{}
+	StoneBear struct{}
+	IceBear   struct{}
 
-type Bear interface{}
-type StoneBear struct{}
-type IceBear struct{}
-
-type Wolf interface{}
-type StoneWolf struct{}
-type IceWolf struct{}
-
+	Wolf      interface{}
+	StoneWolf struct{}
+	IceWolf   struct{}
+)
 type NaberiusFactory interface {
 	CreateWolf() Wolf
 	CreateBear() Bear
 }
 
-type ForestFactory struct{}
+type (
+	ForestFactory struct{}
+	TundraFactory struct{}
+)
 
 func (forest ForestFactory) CreateWolf() Wolf {
 	fmt.Println("Creating a stone wolf...")
@@ -31,8 +34,6 @@ func (forest ForestFactory) CreateBear() Bear {
 	fmt.Println("Creating a stone bear...")
 	return StoneBear{}
 }
-
-type TundraFactory struct{}
 
 func (tundra TundraFactory) CreateWolf() Wolf {
 	fmt.Println("Creating an ice wolf...")
