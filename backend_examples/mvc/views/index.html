@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center align-items-center flex-column my-5">
+    {{if .Users}}
+        <p>Available users</p>
+        <div>
+            {{range .Users}}
+                <div>
+                    <a href="/user/{{.ID}}">({{.ID}}) - {{.Name}}</a>&nbsp;
+                    {{$length := len .Data}}{{if eq $length 0}}
+                        Created:
+                    {{else}}
+                        Updated:
+                    {{end}}
+                    &nbsp;{{.LastUpdate.Format "Jan 2, 2006 - 15:04:05"}}
+                </div>
+            {{end}}
+        </div>
+    {{else}}
+        <p>No User Available</p>
+        <a href="/user/create">Try to add some new users here</a>
+    {{end}}
+</div>

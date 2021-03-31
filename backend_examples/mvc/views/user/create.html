@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center align-items-center flex-column my-5">
+    <div class="card">
+        <div class="card-body">
+            <input type="text" id="username" class="my-3" value="">
+            <button type="button" class="btn btn-success" id="register">register</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("register").addEventListener("click", function() {
+        var username = document.getElementById("username").value.trim()
+        if (!!username.match(/^[0-9A-Za-z]+$/)) {
+            $.ajax({
+                url: "/user",
+                method: "POST",
+                data: {
+                    username
+                },
+                dataType: "json"
+            }).always((res) => {
+                if (res.status == 201) {
+                    alert(res.responseText)
+                    window.location.replace("/")
+                } else {
+                    alert("Code "+ res.status + ": " + res.responseText)
+                }
+                document.getElementById("username").value = ""
+            })
+        }
+    })
+</script>

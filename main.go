@@ -1,8 +1,8 @@
 package main
 
 import (
+	"app/main/backend_examples/mvc"
 	"app/main/data_structures/bstree"
-	dq "app/main/data_structures/deque"
 	"fmt"
 )
 
@@ -21,11 +21,5 @@ func main() {
 	tree.Insert(MyInt(7))
 	fmt.Printf("%T -> %v\n", tree, tree.InorderList())
 
-	deque := new(dq.Deque)
-	deque.PushFront(10)
-	deque.PushFront(2)
-	deque.PopBack()
-	deque.PushFront(3)
-	deque.PushBack(4)
-	fmt.Printf("%T -> %v length: %d\n", deque, deque.ToList(), deque.Len())
+	mvc.CreateAPI()
 }
