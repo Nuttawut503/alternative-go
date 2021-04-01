@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/template/html"
 
 	indexCtl "app/main/backend_examples/mvc/controllers"
@@ -15,8 +17,11 @@ import (
 func SetUp() *fiber.App {
 	app := fiber.New(fiber.Config{
 		CaseSensitive: true,
+		ReadTimeout:   time.Duration(3 * time.Second),
 		Views:         html.New("./backend_examples/mvc/views", ".html"),
 	})
+
+	app.Use(cors.New())
 
 	app.Mount("/", indexCtl.IndexHandler())
 	app.Mount("/user", userCtl.UserHandler())
