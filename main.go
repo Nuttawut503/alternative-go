@@ -1,25 +1,40 @@
 package main
 
 import (
-	"app/main/backend_examples/mvc"
-	"app/main/data_structures/bstree"
+	bp "app/main/design_patterns/behavioral_patterns"
 	"fmt"
+	"time"
 )
 
-type MyInt int
-
-func (a MyInt) Less(b interface{}) bool {
-	return a < b.(MyInt)
-}
+var a int = 15
 
 func main() {
-	tree := new(bstree.BSTree)
-	tree.Insert(MyInt(13))
-	tree.Insert(MyInt(6))
-	tree.Insert(MyInt(8))
-	tree.Insert(MyInt(15))
-	tree.Insert(MyInt(7))
-	fmt.Printf("%T -> %v\n", tree, tree.InorderList())
+	bp.CommandExample()
 
-	mvc.CreateAPI()
+	var employees []string
+	employees = append(employees, "ABC")
+	employees = append(employees, "DEF")
+	for _, employee := range employees {
+		fmt.Print(employee, " ")
+	}
+
+	ages := map[string]int{}
+	ages["john"] = 3
+
+	if _, found := ages["John"]; found {
+		// a key name "John" exists
+		println("found")
+	} else {
+		// no key name "John" there
+		println("noo")
+	}
+
+	item := "Chocolate"
+	price := 15.33333
+
+	line := fmt.Sprintf("%s (%.2f)", item, price)
+
+	println(line)
+
+	fmt.Println(time.Now().Unix())
 }
